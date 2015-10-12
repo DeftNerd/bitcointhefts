@@ -55,6 +55,7 @@ class TheftController extends Controller {
           if ($request->ended_at) {
                 $theft->ended_at = $request->ended_at; 
           } 
+	  $theft->denomination = $request->denomination;
           $theft->type = $request->type;
           $theft->victims = $request->victims;
           $theft->btc_then = $request->btc_then;
@@ -114,7 +115,7 @@ class TheftController extends Controller {
           } else {
                 DB::update('update thefts set ended_at = NULL where id = ?', [$id]);
           }
-
+	  $theft->denomination = $request->denomination;
 	  $theft->type = $request->type;
 	  $theft->victims = $request->victims;
 	  $theft->btc_then = $request->btc_then;

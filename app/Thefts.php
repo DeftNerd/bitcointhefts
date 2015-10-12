@@ -30,22 +30,22 @@ class Thefts extends Model implements SluggableInterface {
 
         public function setBtcThenAttribute($value)
         {
-                $this->attributes['btc_then'] = $value * 100000000;
+                $this->attributes['btc_then'] = filter_var($value * 100000000, FILTER_SANITIZE_NUMBER_INT);
         }
 
         public function setBtcNowAttribute($value)
         {
-                $this->attributes['btc_now'] = $value * 100000000;
+                $this->attributes['btc_now'] = filter_var($value * 100000000, FILTER_SANITIZE_NUMBER_INT);
         }
 
         public function setUsdThenAttribute($value)
         {
-                $this->attributes['usd_then'] = $value * 100;
+                $this->attributes['usd_then'] = filter_var($value * 100, FILTER_SANITIZE_NUMBER_INT);
         }
 
         public function setUsdNowAttribute($value)
         {
-                $this->attributes['usd_now'] = $value * 100;
+                $this->attributes['usd_now'] = filter_var($value * 100, FILTER_SANITIZE_NUMBER_INT);
         }
 
 	public function getBtcThenAttribute($value)

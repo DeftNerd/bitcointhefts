@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="home" id="home">
-  <h3 class="pageTitle">This is a listing of significant bitcoin thefts and losses throughout history</h3>
+  <h3 class="pageTitle">Significant bitcoin thefts and losses</h3>
   @if (Auth::check())
     <div>
       <a class="button" href="{{ URL::to('/thefts/create') }}">Create New Entry</a>

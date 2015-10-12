@@ -32,6 +32,7 @@ class WelcomeController extends Controller {
         public function index()
         {
 		$thefts = Thefts::orderBy('ended_at', 'asc')->get();
+		//($thefts);
                 return view('welcome', ['thefts' => $thefts]);
         }
 
@@ -41,5 +42,32 @@ class WelcomeController extends Controller {
 		return view('details', ['theft' => $theft]);
 	}
 
+  public function contact()
+  {
+        return view('contact');
+  }
+
+  public function contactSend(Request $request)
+  {
+        $data = [
+                'name' => $request->get('name'),
+                'email' => $request->get('email'),
+                'user_message' => $request->get('user_message')
+        ];
+
+        Mail::send('contactemail', $data, function($message) {
+                $message->from(env('MAIL_FROM'));
+                $message->to(env('MAIL_TO'));
+                $message->subject('LaravelDirectory Message');
+        });
+
+        return view('contact')->withFlashSuccess("Message Sent.");
+
+  }
+
+  public function about()
+  {
+        return view('about');
+  }
 
 }

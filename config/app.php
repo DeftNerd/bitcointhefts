@@ -140,6 +140,7 @@ return [
 		'Barryvdh\Debugbar\ServiceProvider',
 		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
 		'Thujohn\Twitter\TwitterServiceProvider',
+		'Lowerends\SecurityChecker\ServiceProvider',
 
 		/*
 		 * Application Service Providers...

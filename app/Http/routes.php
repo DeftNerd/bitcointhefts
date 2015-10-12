@@ -14,6 +14,9 @@
 Route::get('/', 'WelcomeController@index');
 Route::get('/details', 'WelcomeController@index');
 Route::get('/details/{id}', 'WelcomeController@show');
+Route::get('/contact', 'WelcomeController@contact');
+Route::post('/contact', 'WelcomeController@contactSend');
+Route::get('/about', 'WelcomeController@about');
 
 Route::resource('thefts', 'TheftController');
 
